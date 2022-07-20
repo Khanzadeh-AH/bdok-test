@@ -7,7 +7,7 @@ from .mongodb import db
 async def connect_to_mongo():
     logging.info("Connecting to database...")
     db.client = AsyncIOMotorClient(
-        'mongodb://username:password@127.0.0.1:27017/bdokdb'
+        'mongodb://username:password@127.0.0.1:27017'
     )
     logging.info('Connected to database!')
 
