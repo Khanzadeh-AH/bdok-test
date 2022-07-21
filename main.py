@@ -6,6 +6,10 @@ tags_metadata = [
     {
         "name": "Product",
         "description": "product CRUD",
+    },
+    {
+        "name": "Basket",
+        "description": "Basket CRUD"
     }
 ]
 
