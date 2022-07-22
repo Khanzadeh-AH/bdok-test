@@ -10,6 +10,14 @@ tags_metadata = [
     {
         "name": "Basket",
         "description": "Basket CRUD"
+    },
+    {
+        "name": "User CRUD",
+        "description": "User CRUD"
+    },
+    {
+        "name": "User Auth",
+        "description": "User Auth"
     }
 ]
 
