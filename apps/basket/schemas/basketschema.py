@@ -2,6 +2,7 @@ from enum import Enum
 from pydantic import BaseModel
 from datetime import datetime
 from apps.product.schemas.productschema import Product
+from apps.user.schema.userschema import UserOut
 
 
 class BasketStatus(str, Enum):
@@ -16,3 +17,7 @@ class Basket(BaseModel):
     created_at: datetime
     updated_at: datetime
     status: BasketStatus
+
+
+class BasketInDB(Basket):
+    user: UserOut
