@@ -31,7 +31,7 @@ def create_access_token(data: dict, expires_delta: Union[timedelta, None] = None
 @router.post('/user/token', tags=['User Auth'], response_model=Token)
 async def user_login(form_data: OAuth2PasswordRequestForm = Depends()):
     user = await db.client['bdokdb']['test_user'].find_one({'username': form_data.username})
-    if not user or pbkdf2_sha256.verify(form_data.password, user['hashed_password']):
+    if (not user) or (not pbkdf2_sha256.verify(form_data.password, user['hashed_password'])):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect username or password",
