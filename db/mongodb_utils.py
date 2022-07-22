@@ -1,3 +1,4 @@
+import os
 import logging
 
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -7,7 +8,7 @@ from .mongodb import db
 async def connect_to_mongo():
     logging.info("Connecting to database...")
     db.client = AsyncIOMotorClient(
-        'mongodb://username:password@127.0.0.1:27017'
+        f'mongodb://{os.environ.get("MONGO_USERNAME")}:{os.environ.get("MONGO_PASSWORD")}@{os.environ.get("MONGO_HOST")}:{os.environ.get("MONGO_PORT")}'
     )
     logging.info('Connected to database!')
 
